@@ -1,0 +1,5 @@
+---
+# asks file for tomcat-manager-gui
+- import_tasks: install_tomcat.yml
+- import_tasks: configure_tomcat.yml
+- import_tasks: start_tomcat.yml

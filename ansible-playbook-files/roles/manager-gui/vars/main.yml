@@ -1,0 +1,8 @@
+---
+# vars file for tomcat-manager-gui
+
+ tomcat_port: 9090
+ tomcat_url: https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.94/bin/apache-tomcat-7.0.94.tar.gz
+ tomcat_admin_username: admin
+ tomcat_admin_password: admin123
+#                   

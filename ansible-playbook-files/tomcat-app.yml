@@ -1,0 +1,16 @@
+---
+
+- name: update web servers
+  hosts: nodes
+  become: yes
+  gather_facts: false
+  roles:
+    - manager-gui
+
+
+
+
+
+
+
+...

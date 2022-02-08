@@ -1,0 +1,7 @@
+---
+  - name: install maven
+    yum: 
+      name: maven
+      state: latest
+
+...

@@ -1,0 +1,15 @@
+---
+  - name: clean code with maven package 
+    shell: mvn clean
+    args:
+      chdir: /home/centos/mavenprj/
+      executable: /bin/bash
+
+  - name: compile code with maven package 
+    shell: mvn package
+    args:
+      chdir: /home/centos/mavenprj/
+      executable: /bin/bash
+
+
+...

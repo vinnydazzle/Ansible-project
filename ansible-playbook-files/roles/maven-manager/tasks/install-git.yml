@@ -1,0 +1,14 @@
+---
+
+  - name: install git 
+    package:
+      name: git
+      state: present
+
+  - name: Ensure site updated from git 
+    git:
+      repo: 'https://github.com/vinnydazzle/project.git'
+      dest: /home/centos/mavenprj
+
+
+...

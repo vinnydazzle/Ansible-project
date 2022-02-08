@@ -1,0 +1,57 @@
+---
+
+- name: update web servers
+  hosts: nodes
+  become: yes
+  vars: 
+    req_java: java-1.8.0-openjdk.x86_64
+      
+  tasks:
+  - name: install java 
+    yum:
+      name: "{{req_java}}"
+      state: present
+
+  - name: install java epel release
+    yum:
+      name: epel-release
+      state: present
+
+  - name: allow ssl certificates
+    shell: sudo yum install -y ca-certificates
+
+  - name: update ssl certificates force enable
+    shell: sudo update-ca-trust force-enable
+
+
+
+  - name: Download  Jenkins release
+    get_url:
+      url: https://pkg.jenkins.io/redhat-stable/jenkins.repo
+      dest: /etc/yum.repos.d/jenkins.repo
+  
+ 
+  - name: Import jenkins key from url
+    ansible.builtin.rpm_key:
+      state: present
+      key: https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+
+  - name: Install jenkins
+    yum:
+      name: jenkins
+      state: latest
+
+  - name: start jenkins
+    systemd:
+      name: jenkins
+      state: started
+
+  - name: enable jenkins
+    systemd:
+      name: jenkins
+      enabled: true
+
+      
+
+
+...

@@ -1,0 +1,4 @@
+---
+# tasks file for maven-manager
+- import-tasks: install-git.yml
+- import-tasks: install-maven.yml

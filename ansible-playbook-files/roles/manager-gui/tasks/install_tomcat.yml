@@ -1,0 +1,16 @@
+---
+
+ - name: downloading tomcat 
+   get_url:
+     url: "{{tomcat_url}}"
+     dest: /home/centos
+      
+ - name: Extract downloaded tomcat file
+   unarchive:
+     src: "/home/centos/apache-tomcat-7.0.94.tar.gz"
+     dest: /home/centos
+     remote_src: yes
+
+#  - name: renaming tomcat home
+#  #   command: mv /usr/local/apache-tomcat-7.0.94 /usr/local/latest
+...

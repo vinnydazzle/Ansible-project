@@ -1,0 +1,13 @@
+---
+
+- name: configure tomcat user xml file
+  template:
+    src: tomcat-users.j2
+    dest: /home/centos/apache-tomcat-7.0.94/conf/tomcat-users.xml
+
+- name: configure tomcat server xml file
+  template:
+    src: server.j2
+    dest: /home/centos/apache-tomcat-7.0.94/conf/server.xml
+
+...

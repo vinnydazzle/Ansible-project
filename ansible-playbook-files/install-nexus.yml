@@ -1,0 +1,25 @@
+---
+
+- name: update web servers
+  hosts: nodes
+  
+  vars: 
+    nexus_url: https://download.sonatype.com/nexus/oss/nexus-2.14.18-01-bundle.tar.gz   
+
+  tasks:
+  - name: downloading nexus 
+    get_url:
+      url: "{{nexus_url}}"
+      dest: /home/centos/
+    become: yes
+
+  - name: Extract downloaded nexus file
+    unarchive:
+      src: "/home/centos/nexus-2.14.18-01-bundle.tar.gz"
+      dest: /home/centos
+      remote_src: yes
+  
+  - name: starting nexus 
+    shell: nohup  /home/centos/nexus-2.14.18-01/bin/nexus start &
+
+...
